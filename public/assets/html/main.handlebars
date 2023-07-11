@@ -1,0 +1,106 @@
+<!-- <!DOCTYPE html> 
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="path/to/bulma.css" />
+    <link rel="stylesheet" href="login.hbs" />
+  <title>Document</title>
+</head>
+<body>
+  <ul class="movie-list columns">
+  {{#each movie}}
+<div class="column">
+            <div class="movie-entry"> <p>Title:
+    {{this.titleText.text}}</p> <img src="{{this.primaryImage.url}}" />
+    <p>Ratings: probably good idk</p> <p>Description:
+    {{this.id}}</p>
+
+        </div>
+
+
+    <div class="movie-entry"> <p>Title:
+    {{this.titleText.text}}</p> <img src="{{this.primaryImage.url}}" />
+    <p>Ratings: probably good idk</p> <p>Description:
+    {{this.id}}</p> </div>
+
+  {{/each}}
+  </ul>
+  <script
+  src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"
+></script>
+<script
+  src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.4.0/axios.min.js"
+></script>
+<script>
+  var source = document.getElementById("movie-list").innerHTML; var template =
+  Handlebars.compile(source); const options = { method: 'GET', url:
+  'https://moviesdatabase.p.rapidapi.com/titles/random', params: { list:
+  'most_pop_movies' }, headers: { 'X-RapidAPI-Key':
+  '455a4bf363msh2b73fbc2a5bff09p1da02cjsn23933b8857b8', 'X-RapidAPI-Host':
+  'moviesdatabase.p.rapidapi.com' } }; axios.request(options).then((data) => {
+  console.log(data.data.results); var context = { movie: data.data.results };
+  var html = template(context); document.body.innerHTML = html })
+
+</script>
+</body>
+</html> -->
+
+<html>
+
+  <head>
+    <link rel="stylesheet" href="path/to/bulma.css" />
+    <link rel="stylesheet" href="login.hbs" />
+  </head>
+
+  <body>
+  </body>
+
+</html>
+
+<!-- Include Handlebars from a CDN -->
+
+<script
+  src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"
+></script>
+<script
+  src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.4.0/axios.min.js"
+></script>
+<script id="movie-list" type="text/x-handlebars-template">
+  <div class="container"> <div class="columns is-centered pt-5 pb-5"> <div
+  class="column is-vcentered"> <p class="title">Cinematrix</p> </div> <div
+  class="column is-vcentered"> <div class="field has-addons
+  is-justify-content-center "> <p class="control"> <input class="input"
+  type="text" placeholder="Find a movie"> </p> <p class="control"> <button
+  class="button"> Search </button> </p> </div> </div> <div class="column
+  is-vcentered is-pl-10"> <div class="field has-addons"> <div class="buttons">
+  <a class="button is-primary"> <strong>Sign up</strong> </a> <a class="button
+  is-light"> Log in </a> </div> </div> </div> </div> </div> <ul
+  class="movie-list columns">
+  {{#each movie}}
+    <section class="section"> <div class="container"> <div class="columns
+    is-multiline has-background-dark p"> <div class="column"> <div
+    class="movie-entry"> <p>Title:
+    {{this.titleText.text}}</p> <img src="{{this.primaryImage.url}}" />
+    <p>Ratings: probably good idk</p> <p>Description:
+    {{this.id}}</p> </div> <div class="movie-entry"> <p>Title:
+    {{this.titleText.text}}</p> <img src="{{this.primaryImage.url}}" />
+    <p>Ratings: probably good idk</p> <p>Description:
+    {{this.id}}</p> </div> </div> </div> </div> </section>
+
+  {{/each}}
+  </ul>
+</script>
+
+<script>
+  var source = document.getElementById("movie-list").innerHTML; var template =
+  Handlebars.compile(source); const options = { method: 'GET', url:
+  'https://moviesdatabase.p.rapidapi.com/titles/random', params: { list:
+  'most_pop_movies' }, headers: { 'X-RapidAPI-Key':
+  '455a4bf363msh2b73fbc2a5bff09p1da02cjsn23933b8857b8', 'X-RapidAPI-Host':
+  'moviesdatabase.p.rapidapi.com' } }; axios.request(options).then((data) => {
+  console.log(data.data.results); var context = { movie: data.data.results };
+  var html = template(context); document.body.innerHTML = html })
+
+</script>
